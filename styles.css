@@ -1645,26 +1645,14 @@ h3 {
 }
 
 .tg-fab span {
-  position: relative;
+  display: grid;
+  place-items: center;
   width: 28px;
   height: 28px;
   border-radius: 50%;
   background: var(--lime);
-}
-
-.tg-fab span::after {
-  content: "↗";
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  width: auto;
-  height: auto;
-  color: var(--green);
-  background: transparent;
-  font-size: 15px;
-  font-weight: 950;
-  clip-path: none;
+  font-size: 17px;
+  line-height: 1;
 }
 
 .tg-fab:hover,
