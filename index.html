@@ -134,6 +134,10 @@
           <button class="filter" type="button" data-filter="seasonal">Сезонные</button>
           <button class="filter" type="button" data-filter="cold">Холодные</button>
         </div>
+        <div class="menu-controls" aria-label="????????? ????">
+          <button class="round-control menu-scroll-control" type="button" onclick="document.querySelector('.product-rail')?.scrollBy({left:-900,behavior:'smooth'})" data-menu-prev aria-label="?????????? ??????? ????">&larr;</button>
+          <button class="round-control menu-scroll-control" type="button" onclick="document.querySelector('.product-rail')?.scrollBy({left:900,behavior:'smooth'})" data-menu-next aria-label="????????? ??????? ????">&rarr;</button>
+        </div>
         <div class="menu-rail product-rail" aria-label="Позиции меню">
           <article class="menu-card product-card big" data-category="coffee" data-kind="coffee" data-title="Эспрессо" data-price="200" data-image="assets/menu-espresso.jpg" data-detail="Состав: эспрессо на зерне кофейни. Объём: классическая порция. Дополнительно можно выбрать воду, сироп или дополнительный шот.">
             <img src="assets/menu-espresso.jpg" alt="Эспрессо из меню кофейни Щегол" />
@@ -624,21 +628,8 @@
           <button type="button" data-tg-close aria-label="Закрыть чат">×</button>
         </div>
         <div class="tg-panel-body">
-          <div class="tg-message tg-message-bot">
-            Здравствуйте! Я помогу посмотреть меню, собрать предзаказ, найти филиал или открыть карту гостя.
-          </div>
-          <div class="tg-quick">
-            <button type="button" data-tg-reply="menu">Меню</button>
-            <button type="button" data-tg-reply="order">Предзаказ</button>
-            <button type="button" data-tg-reply="branches">Филиалы</button>
-            <button type="button" data-tg-reply="loyalty">Карта гостя</button>
-          </div>
-          <div class="tg-answer" data-tg-answer>
-            Выберите, что подсказать, или сразу откройте бота в Telegram.
-          </div>
-          <a class="tg-open" href="https://t.me/Shchegol_coffee_bot" target="_blank" rel="noreferrer">
-            Открыть Telegram-бота
-          </a>
+          <div class="site-bot-chat" data-site-bot-chat></div>
+          <div class="site-bot-actions" data-site-bot-actions></div>
         </div>
       </div>
       <button class="tg-fab" type="button" data-tg-toggle aria-label="Открыть помощника кофейни">
