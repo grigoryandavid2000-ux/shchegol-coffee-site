@@ -1379,4 +1379,362 @@ window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") setTgWidgetOpen(false);
 });
 
+const menuPrev = document.querySelector("[data-menu-prev]");
+const menuNext = document.querySelector("[data-menu-next]");
 
+const scrollMenuRail = (direction) => {
+  if (!menuRail) return;
+  const step = Math.max(320, Math.round(menuRail.clientWidth * 0.78));
+  menuRail.scrollTo({ left: menuRail.scrollLeft + direction * step, behavior: "smooth" });
+};
+
+menuPrev?.addEventListener("click", () => scrollMenuRail(-1));
+menuNext?.addEventListener("click", () => scrollMenuRail(1));
+
+document.addEventListener("click", (event) => {
+  if (event.target.closest("[data-menu-prev]")) scrollMenuRail(-1);
+  if (event.target.closest("[data-menu-next]")) scrollMenuRail(1);
+});
+
+const siteBotChat = document.querySelector("[data-site-bot-chat]");
+const siteBotActions = document.querySelector("[data-site-bot-actions]");
+const siteBotStorageKey = "shchegolSiteBotCart";
+
+const siteBotCategories = [
+  ["coffee", "☕ Кофе"],
+  ["dessert", "🍰 Десерты"],
+  ["food", "🍽 Еда"],
+  ["seasonal", "🍂 Сезонное"],
+  ["cold", "🧊 Холодные"],
+  ["noncoffee", "🍵 Не кофе"],
+];
+
+const siteBotBranches = [
+  {
+    id: "krasno",
+    title: "6-я Красноармейская",
+    address: "6-я Красноармейская ул., 1",
+    hours: "ежедневно 10:00–20:00",
+    map: "https://yandex.ru/maps/org/shchegol/66748634725/",
+  },
+  {
+    id: "nevsky",
+    title: "Невский проспект",
+    address: "Невский просп., 46, 2 этаж",
+    hours: "ежедневно 10:00–22:00",
+    map: "https://yandex.ru/maps/org/shchegol/149799678053/",
+  },
+  {
+    id: "radish",
+    title: "Улица Радищева",
+    address: "ул. Радищева, 38",
+    hours: "будни 09:00–21:00, выходные 10:00–21:00",
+    map: "https://2gis.ru/spb/branches/70000001032493385/firm/70000001032493386/",
+  },
+];
+
+const normalizeBotTitle = (title = "") =>
+  title
+    .replace(/\s0[.,][23]$/i, "")
+    .replace(/\s0\.2$/i, "")
+    .replace(/\s0\.3$/i, "")
+    .trim();
+
+const siteBotMenuItems = embeddedMenuItems.reduce((items, item) => {
+  const title = normalizeBotTitle(item.title);
+  const key = `${item.category}:${title.toLowerCase()}`;
+  if (items.some((existing) => `${existing.category}:${existing.title.toLowerCase()}` === key)) return items;
+  items.push({ ...item, title, id: key.replace(/[^a-zа-яё0-9]+/gi, "-") });
+  return items;
+}, []);
+
+const getSiteBotCart = () => {
+  try {
+    return JSON.parse(localStorage.getItem(siteBotStorageKey) || "[]");
+  } catch {
+    return [];
+  }
+};
+
+const setSiteBotCart = (cart) => {
+  localStorage.setItem(siteBotStorageKey, JSON.stringify(cart));
+};
+
+const siteBotPrice = (value) => {
+  const number = Number(String(value || "").replace(/[^\d]/g, ""));
+  return Number.isFinite(number) ? number : 0;
+};
+
+const siteBotFormatPrice = (value) => (value ? `${value} ₽` : "уточнить");
+
+const siteBotTotal = () =>
+  getSiteBotCart().reduce((sum, item) => sum + siteBotPrice(item.price) * Number(item.qty || 1), 0);
+
+const siteBotSay = (messages = [], cards = "") => {
+  if (!siteBotChat) return;
+  siteBotChat.innerHTML = messages
+    .map((message) => `<div class="site-bot-bubble ${message.from === "user" ? "user" : ""}">${message.text}</div>`)
+    .join("") + cards;
+  siteBotChat.scrollTop = siteBotChat.scrollHeight;
+};
+
+const siteBotButtons = (buttons = []) => {
+  if (!siteBotActions) return;
+  siteBotActions.innerHTML = buttons
+    .map((button) => {
+      const classes = [button.wide ? "wide" : "", button.primary ? "primary" : "", button.danger ? "danger" : ""]
+        .filter(Boolean)
+        .join(" ");
+      if (button.href) {
+        return `<a class="${classes}" href="${button.href}" target="_blank" rel="noreferrer">${button.text}</a>`;
+      }
+      return `<button class="${classes}" type="button" data-site-bot-action="${button.action || ""}" ${button.value ? `data-value="${button.value}"` : ""}>${button.text}</button>`;
+    })
+    .join("");
+};
+
+const siteBotMain = () => {
+  siteBotSay([
+    { text: "<b>Здравствуйте! Это бот кофейни «Щегол» ☕</b><br><br>Здесь можно посмотреть меню, собрать предзаказ, найти филиал и открыть карту гостя." },
+  ]);
+  siteBotButtons([
+    { text: "☕ Заказать заранее", action: "order", primary: true },
+    { text: "📋 Меню", action: "menu" },
+    { text: "🎁 Карта гостя", action: "loyalty" },
+    { text: "⭐ Отзывы", action: "reviews" },
+    { text: "📍 Филиалы", action: "branches" },
+    { text: "🔥 Новинки", action: "weekly" },
+    { text: `🛒 Корзина (${getSiteBotCart().length})`, action: "cart", wide: true },
+  ]);
+};
+
+const siteBotCategoryList = (mode = "menu") => {
+  siteBotSay([
+    { text: mode === "order" ? "Выберите категорию для предзаказа." : "<b>📋 Меню Щегла</b><br><br>Выберите категорию." },
+  ]);
+  siteBotButtons([
+    ...siteBotCategories.map(([value, text]) => ({ text, action: mode === "order" ? "orderCategory" : "category", value })),
+    { text: "В главное меню", action: "main", wide: true },
+  ]);
+};
+
+const siteBotItems = (category, mode = "menu") => {
+  const items = siteBotMenuItems.filter((item) => item.category === category);
+  const cards = items
+    .slice(0, 14)
+    .map(
+      (item) => `
+        <article class="site-bot-card">
+          ${item.image ? `<img src="${item.image}" alt="${escapeHtml(item.title)}" />` : ""}
+          <h4>${escapeHtml(item.title)}</h4>
+          <small>${escapeHtml(item.desc || item.label || "Позиция меню")}</small>
+          <p><b>${siteBotFormatPrice(siteBotPrice(item.price))}</b></p>
+        </article>
+      `
+    )
+    .join("");
+  siteBotSay([{ text: `Нашёл ${items.length} позиций. Выберите карточку.` }], cards);
+  siteBotButtons([
+    ...items.map((item) => ({ text: item.title, action: mode === "order" ? "orderItem" : "item", value: item.id })),
+    { text: "Назад к категориям", action: mode === "order" ? "order" : "menu", wide: true },
+  ]);
+};
+
+const siteBotItemById = (id) => siteBotMenuItems.find((item) => item.id === id);
+
+const siteBotItem = (id, mode = "menu") => {
+  const item = siteBotItemById(id);
+  if (!item) return siteBotMain();
+  const isDrink = item.kind === "coffee";
+  siteBotSay(
+    [{ text: `<b>${escapeHtml(item.title)}</b><br>${escapeHtml(item.desc || "Позиция меню кофейни «Щегол».")}<br><br><b>Цена:</b> ${siteBotFormatPrice(siteBotPrice(item.price))}` }],
+    `<article class="site-bot-card">${item.image ? `<img src="${item.image}" alt="${escapeHtml(item.title)}" />` : ""}<h4>${escapeHtml(item.title)}</h4><small>${escapeHtml(item.label)}</small></article>`
+  );
+  siteBotButtons([
+    { text: isDrink ? "Выбрать параметры" : "Добавить в корзину", action: isDrink ? "configure" : "quickAdd", value: item.id, primary: true, wide: true },
+    { text: "Назад", action: mode === "order" ? "orderCategory" : "category", value: item.category },
+    { text: "Корзина", action: "cart" },
+  ]);
+};
+
+const siteBotConfigure = (id) => {
+  const item = siteBotItemById(id);
+  if (!item) return siteBotMain();
+  const price = siteBotPrice(item.price);
+  siteBotSay([{ text: `Настроим <b>${escapeHtml(item.title)}</b>. Выберите параметры и количество.` }]);
+  if (!siteBotActions) return;
+  siteBotActions.innerHTML = `
+    <form class="site-bot-form" data-site-bot-form data-item-id="${item.id}">
+      <label>Объём
+        <select name="volume">
+          <option value="200 мл">200 мл</option>
+          <option value="300 мл">300 мл</option>
+          <option value="400 мл">400 мл</option>
+        </select>
+      </label>
+      <label>Молоко
+        <select name="milk">
+          <option value="обычное молоко">обычное молоко</option>
+          <option value="безлактозное молоко">безлактозное молоко</option>
+          <option value="овсяное молоко">овсяное молоко +80 ₽</option>
+          <option value="кокосовое молоко">кокосовое молоко +80 ₽</option>
+          <option value="банановое молоко">банановое молоко +80 ₽</option>
+        </select>
+      </label>
+      <label>Сахар
+        <select name="sugar">
+          <option value="без сахара">без сахара</option>
+          <option value="1 стик сахара">1 стик сахара</option>
+          <option value="2 стика сахара">2 стика сахара</option>
+          <option value="3 стика сахара">3 стика сахара</option>
+        </select>
+      </label>
+      <label>Добавка
+        <select name="addon">
+          <option value="">без добавки</option>
+          <option value="ванильный сироп">ванильный сироп +50 ₽</option>
+          <option value="карамельный сироп">карамельный сироп +50 ₽</option>
+          <option value="ореховый сироп">ореховый сироп +50 ₽</option>
+          <option value="дополнительный эспрессо">дополнительный эспрессо +90 ₽</option>
+        </select>
+      </label>
+      <label>Количество
+        <select name="qty">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </label>
+      <button class="primary wide" type="submit">Добавить от ${siteBotFormatPrice(price)}</button>
+      <button class="wide" type="button" data-site-bot-action="item" data-value="${item.id}">Назад</button>
+    </form>
+  `;
+};
+
+const siteBotAddItem = (item, options = {}, qty = 1) => {
+  const cart = getSiteBotCart();
+  const optionText = Object.values(options).filter(Boolean).join(", ");
+  const price = siteBotPrice(item.price);
+  const key = `${item.id}:${optionText}:${price}`;
+  const existing = cart.find((entry) => entry.key === key);
+  if (existing) existing.qty += qty;
+  else cart.push({ key, id: item.id, title: item.title, price, qty, options: optionText });
+  setSiteBotCart(cart);
+  siteBotCart(`Добавил: <b>${escapeHtml(item.title)}</b>`);
+};
+
+const siteBotCart = (prefix = "") => {
+  const cart = getSiteBotCart();
+  if (!cart.length) {
+    siteBotSay([{ text: `${prefix ? `${prefix}<br><br>` : ""}<b>🛒 Корзина</b><br><br>Корзина пока пустая. Выберите позицию в меню.` }]);
+  } else {
+    const lines = cart
+      .map((item) => `• <b>${escapeHtml(item.title)}</b> × ${item.qty}${item.options ? `<br><small>${escapeHtml(item.options)}</small>` : ""}<br>${siteBotFormatPrice(item.price * item.qty)}`)
+      .join("<br><br>");
+    siteBotSay([{ text: `${prefix ? `${prefix}<br><br>` : ""}<b>🛒 Корзина</b><br><br>${lines}<br><br><b>Итого:</b> ${siteBotFormatPrice(siteBotTotal())}` }]);
+  }
+  siteBotButtons([
+    { text: "Оформить заказ", action: "checkout", primary: true },
+    { text: "Продолжить выбирать", action: "menu" },
+    { text: "Очистить", action: "clearCart", danger: true },
+    { text: "В главное меню", action: "main" },
+  ]);
+};
+
+const siteBotBranchesView = () => {
+  const cards = siteBotBranches
+    .map((branch) => `<article class="site-bot-card"><h4>${branch.title}</h4><p>${branch.address}</p><small>${branch.hours}</small></article>`)
+    .join("");
+  siteBotSay([{ text: "<b>📍 Филиалы</b><br><br>Выберите удобный адрес." }], cards);
+  siteBotButtons([
+    ...siteBotBranches.map((branch) => ({ text: branch.title, href: branch.map })),
+    { text: "В главное меню", action: "main", wide: true },
+  ]);
+};
+
+const siteBotCheckout = () => {
+  if (!getSiteBotCart().length) return siteBotCart();
+  siteBotSay([{ text: "<b>Предзаказ почти готов</b><br><br>Для демо заказ сформирован внутри сайта. Для реального запуска подключим уведомления бариста или оплату." }]);
+  siteBotButtons([
+    { text: "Выбрать филиал", action: "branches", primary: true },
+    { text: "Открыть Telegram", href: "https://t.me/Shchegol_coffee_bot" },
+    { text: "Корзина", action: "cart", wide: true },
+  ]);
+};
+
+const siteBotLoyalty = () => {
+  siteBotSay([{ text: "<b>🎁 Моя карта гостя</b><br><br>0 / 7 кофе<br><br>Копите напитки и получайте каждый 8-й кофе в подарок. В демо прогресс можно связать с базой после запуска." }]);
+  siteBotButtons([{ text: "Меню", action: "menu" }, { text: "В главное меню", action: "main" }]);
+};
+
+const siteBotWeekly = () => {
+  const items = siteBotMenuItems.filter((item) => item.category === "seasonal").slice(0, 6);
+  siteBotSay([{ text: "<b>🔥 Новинки недели</b><br><br>Сезонные позиции, которые можно добавить в корзину." }]);
+  siteBotButtons([...items.map((item) => ({ text: item.title, action: "item", value: item.id })), { text: "В главное меню", action: "main", wide: true }]);
+};
+
+const siteBotReviews = () => {
+  siteBotSay([{ text: "<b>⭐ Отзывы</b><br><br>Отзывы лучше смотреть на площадках, где гости их оставляют. Выберите филиал." }]);
+  siteBotButtons([
+    { text: "Красноармейская", href: "https://yandex.ru/maps/org/shchegol/66748634725/reviews/" },
+    { text: "Невский", href: "https://yandex.ru/maps/org/shchegol/149799678053/reviews/" },
+    { text: "Радищева", href: "https://2gis.ru/spb/branches/70000001032493385/firm/70000001032493386/" },
+    { text: "В главное меню", action: "main" },
+  ]);
+};
+
+siteBotActions?.addEventListener("click", (event) => {
+  const control = event.target.closest("[data-site-bot-action]");
+  if (!control) return;
+  const action = control.dataset.siteBotAction;
+  const value = control.dataset.value;
+  if (action === "main") siteBotMain();
+  if (action === "menu") siteBotCategoryList("menu");
+  if (action === "order") siteBotCategoryList("order");
+  if (action === "category") siteBotItems(value, "menu");
+  if (action === "orderCategory") siteBotItems(value, "order");
+  if (action === "item" || action === "orderItem") siteBotItem(value, action === "orderItem" ? "order" : "menu");
+  if (action === "configure") siteBotConfigure(value);
+  if (action === "quickAdd") {
+    const item = siteBotItemById(value);
+    if (item) siteBotAddItem(item, {}, 1);
+  }
+  if (action === "cart") siteBotCart();
+  if (action === "clearCart") {
+    setSiteBotCart([]);
+    siteBotCart("Корзина очищена.");
+  }
+  if (action === "checkout") siteBotCheckout();
+  if (action === "branches") siteBotBranchesView();
+  if (action === "loyalty") siteBotLoyalty();
+  if (action === "weekly") siteBotWeekly();
+  if (action === "reviews") siteBotReviews();
+});
+
+siteBotActions?.addEventListener("submit", (event) => {
+  const form = event.target.closest("[data-site-bot-form]");
+  if (!form) return;
+  event.preventDefault();
+  const item = siteBotItemById(form.dataset.itemId);
+  if (!item) return;
+  const data = new FormData(form);
+  const qty = Number(data.get("qty") || 1);
+  siteBotAddItem(
+    item,
+    {
+      volume: data.get("volume"),
+      milk: data.get("milk"),
+      sugar: data.get("sugar"),
+      addon: data.get("addon"),
+    },
+    qty
+  );
+});
+
+tgToggle?.addEventListener("click", () => {
+  if (siteBotChat && !siteBotChat.innerHTML.trim()) siteBotMain();
+});
+
+if (siteBotChat && !siteBotChat.innerHTML.trim()) siteBotMain();
