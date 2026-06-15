@@ -1,0 +1,652 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Щегол | Кофе, завтраки, журналы в Петербурге</title>
+    <meta
+      name="description"
+      content="Щегол — кофейня в Санкт-Петербурге с адресами на 6-й Красноармейской, Невском проспекте и улице Радищева. Кофе, завтраки, десерты, журналы и спокойная городская атмосфера."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Onest:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Щегол на главную">
+        <img src="assets/logo-yandex.png" alt="" />
+        <span>Щегол</span>
+      </a>
+      <nav class="nav" aria-label="Навигация">
+        <a href="#menu">Меню</a>
+        <a href="#gallery">Фото</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#addresses">Адреса</a>
+        <a href="#contact-block">Контакты</a>
+        <a href="#contacts">Карта</a>
+      </nav>
+      <a class="book" href="tel:+79117412248">Позвонить</a>
+      <button class="burger" type="button" aria-label="Открыть меню" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero reveal">
+        <div class="hero-copy">
+          <p class="kicker">Три кофейни в Санкт-Петербурге</p>
+          <h1>Кофе, завтраки, журналы и место в городе</h1>
+          <p class="lead">
+            Щегол — кофейня с зелёным знаком, витриной десертов, завтраками, книгами и спокойным интерьером. Один адрес
+            рядом с Технологическим институтом, второй — на Невском, внутри Буквоеда.
+          </p>
+          <div class="hero-actions">
+            <a class="btn dark" href="#addresses">Выбрать филиал</a>
+            <a class="btn light" href="#menu">Смотреть меню</a>
+          </div>
+        </div>
+        <div class="hero-collage hero-clean" aria-label="Логотип кофейни Щегол">
+          <div class="hero-logo-object">
+            <img src="assets/logo-yandex.png" alt="Логотип кофейни Щегол" />
+            <span>три адреса в Петербурге</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="ticker" aria-label="Короткая информация">
+        <div class="ticker-track">
+          <span>6-я Красноармейская, 1</span>
+          <span>Невский проспект, 46</span>
+          <span>Радищева, 38</span>
+          <span>Завтраки</span>
+          <span>Кофе с собой</span>
+          <span>Pet-friendly</span>
+          <span>Журналы и книги</span>
+          <span>6-я Красноармейская, 1</span>
+          <span>Невский проспект, 46</span>
+          <span>Радищева, 38</span>
+          <span>Завтраки</span>
+          <span>Кофе с собой</span>
+          <span>Pet-friendly</span>
+          <span>Журналы и книги</span>
+        </div>
+      </section>
+
+      <section class="intro reveal">
+        <div class="intro-card">
+          <p class="kicker">Щегол в трёх точках</p>
+          <h2>Не просто кофе по пути</h2>
+        </div>
+        <div class="intro-text">
+          <p>
+            Щегол — это не просто кофе по пути. Это место, где хочется задержаться: у окна, с завтраком, журналом и
+            чашкой кофе, которая делает день спокойнее.
+          </p>
+          <div class="branch-pills">
+            <span>Технологический институт</span>
+            <span>Невский проспект</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="split feature reveal">
+        <div class="feature-image parallax">
+          <img src="assets/magazine-interior.jpg" alt="Журнальная стена в кофейне Щегол" />
+        </div>
+        <div class="feature-copy">
+          <p class="kicker">Журнальная атмосфера</p>
+          <h2>Кофейня, где визуальный стиль уже работает</h2>
+          <p>
+            В Щегле легко считывается характер: зелёный знак, тёплая витрина, растения, журналы, кофе и светлая посадка.
+            На сайте это превращается в единый бренд, а не в набор разрозненных карточек на картах.
+          </p>
+          <div class="chips">
+            <span>кофе</span>
+            <span>завтраки</span>
+            <span>журналы</span>
+            <span>книги</span>
+            <span>растения</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu reveal" id="menu">
+        <div class="section-title">
+          <p class="kicker">Меню</p>
+          <h2>Меню кофейни «Щегол»</h2>
+          <p>
+            Позиции, цены и фотографии взяты из открытого меню «Щегла» в Яндекс Картах. В карточке можно посмотреть
+            состав и выбрать параметры для кофе.
+          </p>
+        </div>
+        <div class="menu-filters" aria-label="Фильтр меню">
+          <button class="filter active" type="button" data-filter="all">Все</button>
+          <button class="filter" type="button" data-filter="dessert">Десерты</button>
+          <button class="filter" type="button" data-filter="food">Еда</button>
+          <button class="filter" type="button" data-filter="coffee">Кофе</button>
+          <button class="filter" type="button" data-filter="noncoffee">Не кофе</button>
+          <button class="filter" type="button" data-filter="seasonal">Сезонные</button>
+          <button class="filter" type="button" data-filter="cold">Холодные</button>
+        </div>
+        <div class="menu-rail product-rail" aria-label="Позиции меню">
+          <article class="menu-card product-card big" data-category="coffee" data-kind="coffee" data-title="Эспрессо" data-price="200" data-image="assets/menu-espresso.jpg" data-detail="Состав: эспрессо на зерне кофейни. Объём: классическая порция. Дополнительно можно выбрать воду, сироп или дополнительный шот.">
+            <img src="assets/menu-espresso.jpg" alt="Эспрессо из меню кофейни Щегол" />
+            <span>Кофе</span>
+            <h3>Эспрессо</h3>
+            <p>Классическая база кофейного меню.</p>
+            <b>200 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="coffee" data-kind="coffee" data-title="Американо" data-price="230" data-image="assets/menu-americano.jpg" data-detail="Состав: эспрессо и горячая вода. Объём можно выбрать в карточке.">
+            <img src="assets/menu-americano.jpg" alt="Американо из меню кофейни Щегол" />
+            <span>Кофе</span>
+            <h3>Американо</h3>
+            <p>Чистый кофейный вкус без молока.</p>
+            <b>230 ₽</b>
+          </article>
+          <article class="menu-card product-card green" data-category="coffee" data-kind="coffee" data-title="Капучино" data-price="280" data-image="assets/menu-cappuccino.jpg" data-detail="Состав: эспрессо и молоко. В Яндекс-меню указаны капучино 0.2 и 0.3; больший объём добавлен как опция для будущей витрины.">
+            <img src="assets/menu-cappuccino.jpg" alt="Капучино из меню кофейни Щегол" />
+            <span>Кофе</span>
+            <h3>Капучино</h3>
+            <p>Молочная классика с мягкой пеной.</p>
+            <b>280 ₽</b>
+          </article>
+          <article class="menu-card product-card orange" data-category="coffee" data-kind="coffee" data-title="Раф" data-price="370" data-image="assets/menu-raf.jpg" data-detail="Состав: эспрессо, сливочная основа и сладкий профиль напитка. Молоко и добавки можно уточнить у бариста.">
+            <img src="assets/menu-raf.jpg" alt="Раф из меню кофейни Щегол" />
+            <span>Кофе</span>
+            <h3>Раф</h3>
+            <p>Плотный сливочный напиток к десертам.</p>
+            <b>370 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="coffee" data-kind="coffee" data-title="Любимый напиток Щегла" data-price="370" data-image="assets/menu-favorite.jpg" data-detail="Фирменная позиция из меню. В отзывах её часто берут на базе капучино, в том числе с кокосовым молоком.">
+            <img src="assets/menu-favorite.jpg" alt="Любимый напиток Щегла из меню" />
+            <span>Кофе</span>
+            <h3>Любимый напиток Щегла</h3>
+            <p>Фирменный напиток кофейни.</p>
+            <b>370 ₽</b>
+          </article>
+          <article class="menu-card product-card orange" data-category="food" data-kind="food" data-title="Сборный завтрак с лососем" data-price="750" data-image="assets/menu-salmon-breakfast.jpg" data-detail="Состав из Яндекс-меню: лосось, скрэмбл, камамбер, тартин, салат с черри и лимонной заправкой, крем-кнеля и песто с фисташкой. Вес: уточнить в кофейне.">
+            <img src="assets/menu-salmon-breakfast.jpg" alt="Сборный завтрак с лососем из меню Щегла" />
+            <span>Еда</span>
+            <h3>Сборный завтрак с лососем</h3>
+            <p>Лосось, скрэмбл, камамбер, тартин, салат и песто с фисташкой.</p>
+            <b>750 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="food" data-kind="food" data-title="Тост с лососем" data-price="700" data-image="assets/menu-salmon-toast.jpg" data-detail="Состав из Яндекс-меню: крем-чиз, авокадо, яйцо 6-минутка и лосось. Вес: уточнить в кофейне.">
+            <img src="assets/menu-salmon-toast.jpg" alt="Тост с лососем из меню Щегла" />
+            <span>Еда</span>
+            <h3>Тост с лососем</h3>
+            <p>Крем-чиз, авокадо, яйцо и лосось.</p>
+            <b>700 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="food" data-kind="food" data-title="Омлет с авокадо и салатом" data-price="650" data-image="assets/menu-omelet-avocado.jpg" data-detail="Состав из Яндекс-меню: омлет, воздушная кнеля, авокадо, салат с томатами черри, пармезан и лимонная заправка. Вес: уточнить в кофейне.">
+            <img src="assets/menu-omelet-avocado.jpg" alt="Омлет с авокадо из меню Щегла" />
+            <span>Еда</span>
+            <h3>Омлет с авокадо и салатом</h3>
+            <p>Лёгкий завтрак с салатом, томатами черри, пармезаном и лимонной заправкой.</p>
+            <b>650 ₽</b>
+          </article>
+          <article class="menu-card product-card green" data-category="food" data-kind="food" data-title="Сэндвич с курицей" data-price="550" data-image="assets/menu-chicken-sandwich.jpg" data-detail="Состав из Яндекс-меню Красноармейской: запечённая куриная грудка, соус айоли, сыр чеддер, руккола и тартин. На Невском цена в меню указана ниже — 350 ₽.">
+            <img src="assets/menu-chicken-sandwich.jpg" alt="Сэндвич с курицей из меню Щегла" />
+            <span>Еда</span>
+            <h3>Сэндвич с курицей</h3>
+            <p>Куриная грудка, айоли, чеддер, руккола и тартин.</p>
+            <b>550 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="food" data-kind="food" data-title="Сэндвич с тунцом" data-price="350" data-image="assets/menu-tuna-sandwich.jpg" data-detail="Позиция из меню Невского филиала. Состав можно уточнить у кофейни перед официальной публикацией.">
+            <img src="assets/menu-tuna-sandwich.jpg" alt="Сэндвич с тунцом из меню Щегла" />
+            <span>Еда</span>
+            <h3>Сэндвич с тунцом</h3>
+            <p>Позиция из меню Невского филиала.</p>
+            <b>350 ₽</b>
+          </article>
+          <article class="menu-card product-card green" data-category="food" data-kind="food" data-title="Сырники" data-price="420" data-image="assets/menu-syrniki.jpg" data-detail="Сырники из меню Невского филиала. В меню Красноармейской указаны сырники с манго и сметаной, тоже 420 ₽. Вес: уточнить.">
+            <img src="assets/menu-syrniki.jpg" alt="Сырники из меню Щегла" />
+            <span>Еда</span>
+            <h3>Сырники</h3>
+            <p>Завтрак к кофе, который часто отмечают в отзывах.</p>
+            <b>420 ₽</b>
+          </article>
+          <article class="menu-card product-card orange" data-category="dessert" data-kind="food" data-title="Баноффи" data-price="370" data-image="assets/menu-banoffee.jpg" data-detail="Десерт из меню Невского филиала. Состав для официального сайта лучше подтвердить у кофейни.">
+            <img src="assets/menu-banoffee.jpg" alt="Баноффи из меню Щегла" />
+            <span>Десерты</span>
+            <h3>Баноффи</h3>
+            <p>Десерт из витрины Невского филиала.</p>
+            <b>370 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="dessert" data-kind="food" data-title="Лимонный тарт" data-price="350" data-image="assets/menu-lemon-tart.jpg" data-detail="Десерт из меню Невского филиала. Состав и вес лучше подтвердить перед официальным запуском.">
+            <img src="assets/menu-lemon-tart.jpg" alt="Лимонный тарт из меню Щегла" />
+            <span>Десерты</span>
+            <h3>Лимонный тарт</h3>
+            <p>Цитрусовый десерт к кофе.</p>
+            <b>350 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="dessert" data-kind="food" data-title="Брауни" data-price="290" data-image="assets/menu-brownie.jpg" data-detail="Десерт из меню обоих филиалов. Состав и вес лучше сверить у кофейни.">
+            <img src="assets/menu-brownie.jpg" alt="Брауни из меню Щегла" />
+            <span>Десерты</span>
+            <h3>Брауни</h3>
+            <p>Шоколадный десерт из меню.</p>
+            <b>290 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="dessert" data-kind="food" data-title="Печенье с темным шоколадом и солью" data-price="160" data-image="assets/menu-cookie-dark.jpg" data-detail="Позиция из меню Невского филиала. В отзывах гости отдельно отмечают печенье к кофе.">
+            <img src="assets/menu-cookie-dark.jpg" alt="Печенье с темным шоколадом из меню Щегла" />
+            <span>Десерты</span>
+            <h3>Печенье с темным шоколадом</h3>
+            <p>Небольшой десерт к напитку.</p>
+            <b>160 ₽</b>
+          </article>
+          <article class="menu-card product-card green" data-category="noncoffee" data-kind="coffee" data-title="Какао" data-price="350" data-image="assets/menu-cocoa.jpg" data-detail="Напиток из категории «Не кофе». Можно выбрать молоко и объём.">
+            <img src="assets/menu-cocoa.jpg" alt="Какао из меню Щегла" />
+            <span>Не кофе</span>
+            <h3>Какао</h3>
+            <p>Тёплый напиток без кофеина.</p>
+            <b>350 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="noncoffee" data-kind="coffee" data-title="Маття" data-price="370" data-image="assets/menu-matcha.jpg" data-detail="Напиток из категории «Не кофе». Можно выбрать молоко и объём.">
+            <img src="assets/menu-matcha.jpg" alt="Маття из меню Щегла" />
+            <span>Не кофе</span>
+            <h3>Маття</h3>
+            <p>Зелёная альтернатива кофе.</p>
+            <b>370 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="cold" data-kind="coffee" data-title="Айс-латте" data-price="370" data-image="assets/menu-ice-latte.jpg" data-detail="Холодный кофейный напиток из меню. Можно выбрать молоко и дополнительные опции.">
+            <img src="assets/menu-ice-latte.jpg" alt="Айс-латте из меню Щегла" />
+            <span>Холодные</span>
+            <h3>Айс-латте</h3>
+            <p>Холодная молочная кофейная классика.</p>
+            <b>370 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="cold" data-kind="coffee" data-title="Эспрессо-тоник" data-price="370" data-image="assets/menu-espresso-tonic.jpg" data-detail="Холодный кофейный напиток из меню. Объём и сезонные добавки уточняются в кофейне.">
+            <img src="assets/menu-espresso-tonic.jpg" alt="Эспрессо-тоник из меню Щегла" />
+            <span>Холодные</span>
+            <h3>Эспрессо-тоник</h3>
+            <p>Свежий кофейный напиток с тоником.</p>
+            <b>370 ₽</b>
+          </article>
+          <article class="menu-card product-card orange" data-category="seasonal" data-kind="coffee" data-title="Клубничный айс-латте" data-price="390" data-image="assets/menu-strawberry-ice-latte.jpg" data-detail="Сезонная позиция из меню Невского филиала. Можно выбрать молоко и дополнительные опции.">
+            <img src="assets/menu-strawberry-ice-latte.jpg" alt="Клубничный айс-латте из меню Щегла" />
+            <span>Сезонные</span>
+            <h3>Клубничный айс-латте</h3>
+            <p>Летний холодный кофейный напиток.</p>
+            <b>390 ₽</b>
+          </article>
+          <article class="menu-card product-card" data-category="seasonal" data-kind="coffee" data-title="Гранатовый бамбл" data-price="420" data-image="assets/menu-granat-bumble.jpg" data-detail="Сезонная позиция из меню. Объём и состав лучше уточнить в кофейне перед официальным запуском сайта.">
+            <img src="assets/menu-granat-bumble.jpg" alt="Гранатовый бамбл из меню Щегла" />
+            <span>Сезонные</span>
+            <h3>Гранатовый бамбл</h3>
+            <p>Сезонный холодный напиток.</p>
+            <b>420 ₽</b>
+          </article>
+        </div>
+      </section>
+
+      <section class="gallery-section reveal" id="gallery">
+        <div class="section-title inverted">
+          <p class="kicker">Фото</p>
+          <h2>Атмосфера кофейни «Щегол»</h2>
+          <p>Два адреса, два настроения: фасад и журнальная посадка у Технологического института, книжный вид и зелёная барная зона на Невском.</p>
+        </div>
+        <div class="gallery-shell">
+          <button class="round-control" type="button" data-gallery-prev aria-label="Предыдущее фото">←</button>
+          <div class="gallery-track">
+            <button class="gallery-item" type="button" data-full="assets/facade-winter.jpg" data-caption="6-я Красноармейская, фасад">
+              <img src="assets/facade-winter.jpg" alt="Фасад Щегла на 6-й Красноармейской" />
+              <span>Красноармейская · фасад</span>
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/magazine-interior.jpg" data-caption="6-я Красноармейская, журнальная стена">
+              <img src="assets/magazine-interior.jpg" alt="Журнальная стена в Щегле" />
+              <span>Красноармейская · журналы</span>
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/syrniki-coffee.jpg" data-caption="Завтрак и кофе">
+              <img src="assets/syrniki-coffee.jpg" alt="Сырники и кофе" />
+              <span>завтраки</span>
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/nevsky-window-book.jpg" data-caption="Невский, 46 — столик у окна">
+              <img src="assets/nevsky-window-book.jpg" alt="Книга и кофе у окна на Невском" />
+              <span>Невский · окно</span>
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/nevsky-bar-green.jpg" data-caption="Невский, 46 — зелёная барная зона">
+              <img src="assets/nevsky-bar-green.jpg" alt="Барная зона Щегла на Невском" />
+              <span>Невский · бар</span>
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/nevsky-room.jpg" data-caption="Невский, 46 — интерьер">
+              <img src="assets/nevsky-room.jpg" alt="Интерьер Щегла на Невском" />
+              <span>Невский · интерьер</span>
+            </button>
+            <button class="gallery-item" type="button" data-full="assets/facade-summer.jpg" data-caption="6-я Красноармейская — вход">
+              <img src="assets/facade-summer.jpg" alt="Вход в Щегол на 6-й Красноармейской" />
+              <span>Красноармейская · вход</span>
+            </button>
+          </div>
+          <button class="round-control" type="button" data-gallery-next aria-label="Следующее фото">→</button>
+        </div>
+      </section>
+
+      <section class="reviews reveal" id="reviews">
+        <div class="section-title">
+          <p class="kicker">Отзывы гостей</p>
+          <h2>Отзывы гостей</h2>
+          <p>Отзывы собраны из открытых карточек и площадок. Для финального сайта тексты нужно сверить с владельцем или кабинетами площадок.</p>
+        </div>
+        <div class="review-shell">
+          <button class="round-control" type="button" data-review-prev aria-label="Предыдущий отзыв">←</button>
+          <div class="review-track">
+            <article class="review-card" tabindex="0" data-author="Яна" data-source="Яндекс Карты" data-rating="5.0" data-date="январь" data-branch="6-я Красноармейская" data-photo="assets/syrniki-coffee.jpg" data-review="Кофе вкусный, мягкий. В отзыве отдельно отмечены мандариновый чизкейк и спокойная атмосфера, где приятно согреться и замедлиться.">
+              <span>Яндекс · 6-я Красноармейская</span>
+              <b>5.0</b>
+              <strong>Яна</strong>
+              <p>«Кофе вкусный, мягкий»; гости отдельно отмечают спокойную атмосферу и десерты.</p>
+              <small>январь</small>
+            </article>
+            <article class="review-card" tabindex="0" data-author="Лиза Кайгородова" data-source="Яндекс Карты" data-rating="5.0" data-date="январь" data-branch="6-я Красноармейская" data-photo="assets/magazine-interior.jpg" data-review="Приятное тихое кафе, где можно комфортно поработать за ноутбуком. В отзыве отмечены минималистичная атмосфера, хороший спешелти кофе, свежий баноффи и сытные завтраки.">
+              <span>Яндекс · 6-я Красноармейская</span>
+              <b>5.0</b>
+              <strong>Лиза Кайгородова</strong>
+              <p>«Хороший спешлти кофе» и свежие десерты — частый сценарий для встреч и работы.</p>
+              <small>январь</small>
+            </article>
+            <article class="review-card" tabindex="0" data-author="Lazzy Song" data-source="Яндекс Карты" data-rating="5.0" data-date="май" data-branch="Невский проспект" data-photo="assets/nevsky-window-book.jpg" data-review="Удобное гнёздышко за Буквоедом. В отзыве хвалят кофейный ряд, печенье, сэндвичи, светлый интерьер и сценарий «начать купленную книгу».">
+              <span>Яндекс · Невский</span>
+              <b>4.8</b>
+              <strong>Lazzy Song</strong>
+              <p>«Гнёздышко за Буквоедом» — очень точный образ для филиала на Невском.</p>
+              <small>май</small>
+            </article>
+            <article class="review-card" tabindex="0" data-author="Polina" data-source="Яндекс Карты" data-rating="5.0" data-date="ноябрь" data-branch="Невский проспект" data-photo="assets/nevsky-bar-green.jpg" data-review="Отзывы о Невском филиале часто связаны с соседством с Буквоедом: можно взять кофе, полистать книгу, посидеть в минималистичном интерьере и выбрать авторский десерт.">
+              <span>Яндекс · Невский</span>
+              <b>4.8</b>
+              <strong>Polina</strong>
+              <p>Кофе рядом с Буквоедом превращается в понятный городской ритуал.</p>
+              <small>ноябрь</small>
+            </article>
+            <article class="review-card" tabindex="0" data-author="Гости 2ГИС" data-source="2ГИС" data-rating="4.8" data-date="актуальная карточка" data-branch="Невский проспект" data-photo="assets/nevsky-room.jpg" data-review="В 2ГИС у Невского филиала высокая оценка на основе большого числа оценок. Карточка подчёркивает центральное расположение, кофе, десерты и фотографии гостей.">
+              <span>2ГИС · Невский</span>
+              <b>4.8</b>
+              <strong>Гости 2ГИС</strong>
+              <p>В 2ГИС у Невского филиала высокая оценка и много фото гостей.</p>
+              <small>96 отзывов</small>
+            </article>
+            <article class="review-card" tabindex="0" data-author="Гость Tripadvisor" data-source="Tripadvisor" data-rating="5.0" data-date="архивный отзыв" data-branch="бренд" data-photo="assets/tg-official-channel.jpg" data-review="В архивном отзыве кофейню называют любимой, выделяют зелёную атмосферу, команду, кофе, каппинги, бранчи, кинопоказы и литературные вечера.">
+              <span>Tripadvisor · бренд</span>
+              <b>5.0</b>
+              <strong>Гость Tripadvisor</strong>
+              <p>«Уютная и очень зелёная атмосфера» — формула, которую стоит держать на сайте.</p>
+              <small>архивный отзыв</small>
+            </article>
+            <article class="review-card" tabindex="0" data-author="Гости Яндекс Карт" data-source="Яндекс Карты" data-rating="5.0" data-date="карточка филиала" data-branch="6-я Красноармейская" data-photo="assets/facade-winter.jpg" data-review="У филиала на 6-й Красноармейской в Яндекс Картах высокий рейтинг. В карточке чаще всего считываются кофе, завтраки, атмосфера и удобство точки рядом с Технологическим институтом.">
+              <span>Яндекс · 6-я Красноармейская</span>
+              <b>5.0</b>
+              <strong>Гости Яндекс Карт</strong>
+              <p>Высокая оценка филиала и много отзывов про кофе, завтраки и атмосферу.</p>
+              <small>карточка филиала</small>
+            </article>
+            <article class="review-card" tabindex="0" data-author="Гости Яндекс Карт" data-source="Яндекс Карты" data-rating="4.8" data-date="карточка филиала" data-branch="Невский проспект" data-photo="assets/nevsky-window-book.jpg" data-review="У филиала на Невском гости часто отмечают связку кофе и книг: Буквоед, второй этаж, светлый интерьер и возможность задержаться после покупки книги.">
+              <span>Яндекс · Невский</span>
+              <b>4.8</b>
+              <strong>Гости Яндекс Карт</strong>
+              <p>Невский филиал воспринимается как кофейня при книжном маршруте.</p>
+              <small>карточка филиала</small>
+            </article>
+          </div>
+          <button class="round-control" type="button" data-review-next aria-label="Следующий отзыв">→</button>
+        </div>
+      </section>
+
+      <section class="social reveal" id="social">
+        <div>
+          <p class="kicker">Соцсети</p>
+          <h2>Следить за новостями, меню и атмосферой</h2>
+        </div>
+        <div class="social-grid">
+          <a href="https://www.instagram.com/schegolcoffee/?hl=en" target="_blank" rel="noreferrer">
+            <span>Instagram</span>
+            <b>@schegolcoffee</b>
+            <small>Фото, новости, сезонные позиции и настроение кофеен.</small>
+          </a>
+          <a href="https://t.me/schegolcoffee" target="_blank" rel="noreferrer">
+            <span>Telegram</span>
+            <b>t.me/schegolcoffee</b>
+            <small>Анонсы, обновления меню и быстрые новости.</small>
+          </a>
+          <a href="https://vk.com/public165968266" target="_blank" rel="noreferrer">
+            <span>VK</span>
+            <b>Щегол</b>
+            <small>Ещё один способ следить за жизнью кофейни.</small>
+          </a>
+        </div>
+      </section>
+
+      <section class="addresses reveal" id="addresses">
+        <div class="section-title">
+          <p class="kicker">Адреса</p>
+          <h2>Три точки Щегла</h2>
+        </div>
+        <div class="address-grid">
+          <article class="address-card" data-map-target="krasno">
+            <img src="assets/magazine-interior.jpg" alt="Журнальная стена в Щегле на 6-й Красноармейской" />
+            <div>
+              <span>Технологический институт</span>
+              <h3>6-я Красноармейская ул., 1</h3>
+              <p>Санкт-Петербург. Уютная точка с фасадом, журналами, завтраками, верандой и кофе с собой.</p>
+              <ul>
+                <li>10:00–20:00 ежедневно</li>
+                <li>+7 911 741-22-48</li>
+                <li>Pet-friendly</li>
+              </ul>
+              <div class="address-actions">
+                <a href="tel:+79117412248">Позвонить</a>
+                <a href="https://yandex.ru/maps/org/shchegol/66748634725/" target="_blank" rel="noreferrer">Яндекс Карты</a>
+                <a href="https://2gis.ru/spb/search/%D0%A9%D0%B5%D0%B3%D0%BE%D0%BB%206-%D1%8F%20%D0%9A%D1%80%D0%B0%D1%81%D0%BD%D0%BE%D0%B0%D1%80%D0%BC%D0%B5%D0%B9%D1%81%D0%BA%D0%B0%D1%8F%201" target="_blank" rel="noreferrer">2ГИС</a>
+              </div>
+            </div>
+          </article>
+          <article class="address-card" data-map-target="nevsky">
+            <img src="assets/yandex/nevsky-reviews/nevsky-reviews-e1485817a8.jpg" alt="Щегол на Невском проспекте, зелёный интерьер" />
+            <div>
+              <span>Невский проспект</span>
+              <h3>Невский просп., 46, 2 этаж</h3>
+              <p>Санкт-Петербург. Кофейня внутри Буквоеда: книги, кофе, десерты и вид на центр города.</p>
+              <ul>
+                <li>10:00–22:00 ежедневно</li>
+                <li>+7 911 741-22-48</li>
+                <li>2 этаж · Буквоед</li>
+              </ul>
+              <div class="address-actions">
+                <a href="tel:+79117412248">Позвонить</a>
+                <a href="https://yandex.ru/maps/org/shchegol/149799678053/" target="_blank" rel="noreferrer">Яндекс Карты</a>
+                <a href="https://2gis.ru/spb/firm/70000001063218096" target="_blank" rel="noreferrer">2ГИС</a>
+              </div>
+            </div>
+          </article>
+          <article class="address-card" data-map-target="radish">
+            <img src="assets/radish-1.jpg" alt="Щегол на улице Радищева" />
+            <div>
+              <span>Радищева</span>
+              <h3>ул. Радищева, 38</h3>
+              <p>Санкт-Петербург. Третий филиал бренда по данным 2ГИС: кофе, десерты, завтраки и спокойная городская посадка.</p>
+              <ul>
+                <li>будни 09:00–21:00</li>
+                <li>выходные 10:00–21:00</li>
+                <li>+7 911 157-21-87</li>
+              </ul>
+              <div class="address-actions">
+                <a href="tel:+79111572187">Позвонить</a>
+                <a href="https://2gis.ru/spb/branches/70000001032493385/firm/70000001032493386" target="_blank" rel="noreferrer">2ГИС</a>
+                <a href="https://yandex.ru/maps/?text=%D0%A9%D0%B5%D0%B3%D0%BE%D0%BB%20%D0%A0%D0%B0%D0%B4%D0%B8%D1%89%D0%B5%D0%B2%D0%B0%2038%20%D0%A1%D0%9F%D0%B1" target="_blank" rel="noreferrer">Яндекс Карты</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="contacts-block reveal" id="contact-block">
+        <div class="contacts-card">
+          <p class="kicker">Контакты</p>
+          <h2>Связаться со Щеглом</h2>
+          <p>Выберите филиал, постройте маршрут или следите за новостями в соцсетях.</p>
+        </div>
+        <div class="contacts-list">
+          <div>
+            <span>Телефон</span>
+            <a href="tel:+79117412248">+7 911 741-22-48</a>
+          </div>
+          <div>
+            <span>Красноармейская</span>
+            <b>6-я Красноармейская ул., 1</b>
+            <small>10:00–20:00 ежедневно</small>
+          </div>
+          <div>
+            <span>Невский</span>
+            <b>Невский просп., 46, 2 этаж</b>
+            <small>10:00–22:00 ежедневно</small>
+          </div>
+          <div>
+            <span>Радищева</span>
+            <b>ул. Радищева, 38</b>
+            <small>будни 09:00–21:00 · выходные 10:00–21:00</small>
+          </div>
+          <div class="contacts-actions">
+            <a href="tel:+79117412248">Позвонить</a>
+            <a href="https://yandex.ru/maps/org/shchegol/66748634725/" target="_blank" rel="noreferrer">Красноармейская в Яндекс</a>
+            <a href="https://yandex.ru/maps/org/shchegol/149799678053/" target="_blank" rel="noreferrer">Невский в Яндекс</a>
+            <a href="https://2gis.ru/spb/branches/70000001032493385/firm/70000001032493386" target="_blank" rel="noreferrer">Радищева в 2ГИС</a>
+            <a href="https://2gis.ru/spb/firm/70000001063218096" target="_blank" rel="noreferrer">Открыть 2ГИС</a>
+          </div>
+          <div class="contacts-socials">
+            <a href="https://www.instagram.com/schegolcoffee/?hl=en" target="_blank" rel="noreferrer">Instagram</a>
+            <a href="https://t.me/schegolcoffee" target="_blank" rel="noreferrer">Telegram</a>
+            <a href="https://vk.com/public165968266" target="_blank" rel="noreferrer">VK</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="map-section reveal" id="contacts">
+        <div class="map-copy">
+          <p class="kicker">Карта</p>
+          <h2>Выберите ближайший Щегол</h2>
+          <p>Переключайте карту между филиалами или открывайте маршрут в Яндекс Картах и 2ГИС.</p>
+          <div class="map-switch">
+            <button class="map-tab active" type="button" data-map="all">Все филиалы</button>
+            <button class="map-tab" type="button" data-map="krasno">Красноармейская</button>
+            <button class="map-tab" type="button" data-map="nevsky">Невский</button>
+            <button class="map-tab" type="button" data-map="radish">Радищева</button>
+          </div>
+        </div>
+        <div class="map-frame">
+          <iframe
+            title="Карта филиалов Щегол"
+            src="https://yandex.ru/map-widget/v1/?text=%D0%A9%D0%B5%D0%B3%D0%BE%D0%BB%20%D0%BA%D0%BE%D1%84%D0%B5%D0%B9%D0%BD%D1%8F%20%D0%A1%D0%B0%D0%BD%D0%BA%D1%82-%D0%9F%D0%B5%D1%82%D0%B5%D1%80%D0%B1%D1%83%D1%80%D0%B3&z=12"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-brand">
+        <img src="assets/logo-yandex.png" alt="" />
+        <strong>Щегол</strong>
+        <p>Кофе, завтраки, журналы и спокойный Петербург в трёх адресах.</p>
+      </div>
+      <nav aria-label="Навигация в футере">
+        <a href="#menu">Меню</a>
+        <a href="#gallery">Фото</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#addresses">Адреса</a>
+        <a href="#contact-block">Контакты</a>
+        <a href="#contacts">Карта</a>
+      </nav>
+      <div class="footer-info">
+        <p>6-я Красноармейская ул., 1</p>
+        <p>Невский просп., 46, 2 этаж</p>
+        <p>ул. Радищева, 38</p>
+        <a href="tel:+79117412248">+7 911 741-22-48</a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/schegolcoffee/?hl=en" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://t.me/schegolcoffee" target="_blank" rel="noreferrer">Telegram</a>
+          <a href="https://vk.com/public165968266" target="_blank" rel="noreferrer">VK</a>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <button type="button" data-legal="privacy">Политика конфиденциальности</button>
+        <button type="button" data-legal="personal">Согласие на обработку данных</button>
+        <button type="button" data-legal="terms">Пользовательское соглашение</button>
+        <small>© 2026 Щегол. Демо-концепт сайта, не официальный сайт кофейни.</small>
+      </div>
+    </footer>
+
+    <div class="modal" id="imageModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="image-dialog" role="dialog" aria-modal="true" aria-label="Фото кофейни">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+        <img src="" alt="" />
+        <p></p>
+      </div>
+    </div>
+
+    <div class="modal" id="textModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="text-dialog" role="dialog" aria-modal="true" aria-label="Информация">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+        <h2></h2>
+        <div class="modal-body"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="reviewModal" aria-hidden="true">
+      <div class="modal-backdrop" data-close-modal></div>
+      <article class="review-expanded" role="dialog" aria-modal="true" aria-label="Отзыв гостя">
+        <button class="modal-close" type="button" data-close-modal aria-label="Закрыть">×</button>
+        <div class="review-expanded-copy">
+          <span></span>
+          <h2></h2>
+          <strong></strong>
+          <p></p>
+          <small></small>
+        </div>
+        <img src="" alt="" />
+      </article>
+    </div>
+
+    <div class="tg-widget" data-tg-widget>
+      <div class="tg-panel" data-tg-panel aria-hidden="true">
+        <div class="tg-panel-head">
+          <div>
+            <span>Онлайн-помощник</span>
+            <strong>Щегол в Telegram</strong>
+          </div>
+          <button type="button" data-tg-close aria-label="Закрыть чат">×</button>
+        </div>
+        <div class="tg-panel-body">
+          <div class="tg-message tg-message-bot">
+            Здравствуйте! Я помогу посмотреть меню, собрать предзаказ, найти филиал или открыть карту гостя.
+          </div>
+          <div class="tg-quick">
+            <button type="button" data-tg-reply="menu">Меню</button>
+            <button type="button" data-tg-reply="order">Предзаказ</button>
+            <button type="button" data-tg-reply="branches">Филиалы</button>
+            <button type="button" data-tg-reply="loyalty">Карта гостя</button>
+          </div>
+          <div class="tg-answer" data-tg-answer>
+            Выберите, что подсказать, или сразу откройте бота в Telegram.
+          </div>
+          <a class="tg-open" href="https://t.me/Shchegol_coffee_bot" target="_blank" rel="noreferrer">
+            Открыть Telegram-бота
+          </a>
+        </div>
+      </div>
+      <button class="tg-fab" type="button" data-tg-toggle aria-label="Открыть помощника кофейни">
+        <span></span>
+        <b>Бот</b>
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
